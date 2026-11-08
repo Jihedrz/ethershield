@@ -1,0 +1,4418 @@
+{
+  "success": true,
+  "error": null,
+  "results": {
+    "detectors": [
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "solve",
+            "source_mapping": {
+              "start": 1350,
+              "length": 466,
+              "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+              "filename_short": "src/vulnerable/FrontRunLottery.sol",
+              "is_dependency": false,
+              "lines": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "FrontRunLottery",
+                "source_mapping": {
+                  "start": 421,
+                  "length": 1397,
+                  "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+                  "filename_short": "src/vulnerable/FrontRunLottery.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "solve(uint256)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = msg.sender.call{value: payout}()",
+            "source_mapping": {
+              "start": 1653,
+              "length": 53,
+              "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+              "filename_short": "src/vulnerable/FrontRunLottery.sol",
+              "is_dependency": false,
+              "lines": [
+                42
+              ],
+              "starting_column": 9,
+              "ending_column": 62
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "solve",
+                "source_mapping": {
+                  "start": 1350,
+                  "length": 466,
+                  "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+                  "filename_short": "src/vulnerable/FrontRunLottery.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "FrontRunLottery",
+                    "source_mapping": {
+                      "start": 421,
+                      "length": 1397,
+                      "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+                      "filename_short": "src/vulnerable/FrontRunLottery.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "solve(uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "FrontRunLottery.solve(uint256) (src/vulnerable/FrontRunLottery.sol#35-45) sends eth to arbitrary user\n\tDangerous calls:\n\t- (success,None) = msg.sender.call{value: payout}() (src/vulnerable/FrontRunLottery.sol#42)\n",
+        "markdown": "[FrontRunLottery.solve(uint256)](src/vulnerable/FrontRunLottery.sol#L35-L45) sends eth to arbitrary user\n\tDangerous calls:\n\t- [(success,None) = msg.sender.call{value: payout}()](src/vulnerable/FrontRunLottery.sol#L42)\n",
+        "first_markdown_element": "src/vulnerable/FrontRunLottery.sol#L35-L45",
+        "id": "0aef892ffde0ac9130d1e0d3ed5c5bf7c42ed522d4d79efd087ffd05be41fcbb",
+        "check": "arbitrary-send-eth",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "claim",
+            "source_mapping": {
+              "start": 1551,
+              "length": 488,
+              "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+              "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+              "is_dependency": false,
+              "lines": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "SignatureAirdrop",
+                "source_mapping": {
+                  "start": 595,
+                  "length": 1521,
+                  "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                  "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "claim(address,uint256,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = recipient.call{value: amount}()",
+            "source_mapping": {
+              "start": 1876,
+              "length": 52,
+              "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+              "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+              "is_dependency": false,
+              "lines": [
+                41
+              ],
+              "starting_column": 9,
+              "ending_column": 61
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "claim",
+                "source_mapping": {
+                  "start": 1551,
+                  "length": 488,
+                  "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                  "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureAirdrop",
+                    "source_mapping": {
+                      "start": 595,
+                      "length": 1521,
+                      "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                      "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "claim(address,uint256,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "SignatureAirdrop.claim(address,uint256,bytes) (src/vulnerable/SignatureAirdrop.sol#35-44) sends eth to arbitrary user\n\tDangerous calls:\n\t- (success,None) = recipient.call{value: amount}() (src/vulnerable/SignatureAirdrop.sol#41)\n",
+        "markdown": "[SignatureAirdrop.claim(address,uint256,bytes)](src/vulnerable/SignatureAirdrop.sol#L35-L44) sends eth to arbitrary user\n\tDangerous calls:\n\t- [(success,None) = recipient.call{value: amount}()](src/vulnerable/SignatureAirdrop.sol#L41)\n",
+        "first_markdown_element": "src/vulnerable/SignatureAirdrop.sol#L35-L44",
+        "id": "6febf4905a3716ba6d9c3059248dc7511f3402708df24614e35d97a791b79160",
+        "check": "arbitrary-send-eth",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "refundAll",
+            "source_mapping": {
+              "start": 1367,
+              "length": 467,
+              "filename_relative": "src/vulnerable/RefundPool.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+              "filename_short": "src/vulnerable/RefundPool.sol",
+              "is_dependency": false,
+              "lines": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "RefundPool",
+                "source_mapping": {
+                  "start": 360,
+                  "length": 1636,
+                  "filename_relative": "src/vulnerable/RefundPool.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                  "filename_short": "src/vulnerable/RefundPool.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    51
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "refundAll()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = contributor.call{value: amount}()",
+            "source_mapping": {
+              "start": 1656,
+              "length": 54,
+              "filename_relative": "src/vulnerable/RefundPool.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+              "filename_short": "src/vulnerable/RefundPool.sol",
+              "is_dependency": false,
+              "lines": [
+                41
+              ],
+              "starting_column": 13,
+              "ending_column": 67
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "refundAll",
+                "source_mapping": {
+                  "start": 1367,
+                  "length": 467,
+                  "filename_relative": "src/vulnerable/RefundPool.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                  "filename_short": "src/vulnerable/RefundPool.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "RefundPool",
+                    "source_mapping": {
+                      "start": 360,
+                      "length": 1636,
+                      "filename_relative": "src/vulnerable/RefundPool.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                      "filename_short": "src/vulnerable/RefundPool.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "refundAll()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "external_calls"
+            }
+          },
+          {
+            "type": "node",
+            "name": "contributions[contributor] = 0",
+            "source_mapping": {
+              "start": 1612,
+              "length": 30,
+              "filename_relative": "src/vulnerable/RefundPool.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+              "filename_short": "src/vulnerable/RefundPool.sol",
+              "is_dependency": false,
+              "lines": [
+                40
+              ],
+              "starting_column": 13,
+              "ending_column": 43
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "refundAll",
+                "source_mapping": {
+                  "start": 1367,
+                  "length": 467,
+                  "filename_relative": "src/vulnerable/RefundPool.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                  "filename_short": "src/vulnerable/RefundPool.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "RefundPool",
+                    "source_mapping": {
+                      "start": 360,
+                      "length": 1636,
+                      "filename_relative": "src/vulnerable/RefundPool.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                      "filename_short": "src/vulnerable/RefundPool.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "refundAll()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "variables_written",
+              "variable_name": "contributions"
+            }
+          }
+        ],
+        "description": "Reentrancy in RefundPool.refundAll() (src/vulnerable/RefundPool.sol#35-45):\n\tExternal calls:\n\t- (success,None) = contributor.call{value: amount}() (src/vulnerable/RefundPool.sol#41)\n\tState variables written after the call(s):\n\t- contributions[contributor] = 0 (src/vulnerable/RefundPool.sol#40)\n\tRefundPool.contributions (src/vulnerable/RefundPool.sol#14) can be used in cross function reentrancies:\n\t- RefundPool.contribute() (src/vulnerable/RefundPool.sol#23-30)\n\t- RefundPool.contributions (src/vulnerable/RefundPool.sol#14)\n\t- RefundPool.refundAll() (src/vulnerable/RefundPool.sol#35-45)\n",
+        "markdown": "Reentrancy in [RefundPool.refundAll()](src/vulnerable/RefundPool.sol#L35-L45):\n\tExternal calls:\n\t- [(success,None) = contributor.call{value: amount}()](src/vulnerable/RefundPool.sol#L41)\n\tState variables written after the call(s):\n\t- [contributions[contributor] = 0](src/vulnerable/RefundPool.sol#L40)\n\t[RefundPool.contributions](src/vulnerable/RefundPool.sol#L14) can be used in cross function reentrancies:\n\t- [RefundPool.contribute()](src/vulnerable/RefundPool.sol#L23-L30)\n\t- [RefundPool.contributions](src/vulnerable/RefundPool.sol#L14)\n\t- [RefundPool.refundAll()](src/vulnerable/RefundPool.sol#L35-L45)\n",
+        "first_markdown_element": "src/vulnerable/RefundPool.sol#L35-L45",
+        "id": "2bf5787c14b58fb5078a23e19450e4cb7211f26a85fde9790563b28b5640f0d1",
+        "check": "reentrancy-eth",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdraw",
+            "source_mapping": {
+              "start": 1680,
+              "length": 309,
+              "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+              "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+              "is_dependency": false,
+              "lines": [
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "AdvancedTreasury",
+                "source_mapping": {
+                  "start": 429,
+                  "length": 1720,
+                  "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+                  "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    51,
+                    52,
+                    53,
+                    54,
+                    55,
+                    56,
+                    57
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "withdraw()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = hook.call{value: amount}()",
+            "source_mapping": {
+              "start": 1837,
+              "length": 47,
+              "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+              "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+              "is_dependency": false,
+              "lines": [
+                47
+              ],
+              "starting_column": 9,
+              "ending_column": 56
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 1680,
+                  "length": 309,
+                  "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+                  "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    51
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "AdvancedTreasury",
+                    "source_mapping": {
+                      "start": 429,
+                      "length": 1720,
+                      "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+                      "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51,
+                        52,
+                        53,
+                        54,
+                        55,
+                        56,
+                        57
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "external_calls"
+            }
+          },
+          {
+            "type": "node",
+            "name": "balances[msg.sender] = 0",
+            "source_mapping": {
+              "start": 1958,
+              "length": 24,
+              "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+              "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+              "is_dependency": false,
+              "lines": [
+                50
+              ],
+              "starting_column": 9,
+              "ending_column": 33
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 1680,
+                  "length": 309,
+                  "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+                  "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    51
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "AdvancedTreasury",
+                    "source_mapping": {
+                      "start": 429,
+                      "length": 1720,
+                      "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+                      "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51,
+                        52,
+                        53,
+                        54,
+                        55,
+                        56,
+                        57
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "variables_written",
+              "variable_name": "balances"
+            }
+          }
+        ],
+        "description": "Reentrancy in AdvancedTreasury.withdraw() (src/vulnerable/AdvancedTreasury.sol#43-51):\n\tExternal calls:\n\t- (success,None) = hook.call{value: amount}() (src/vulnerable/AdvancedTreasury.sol#47)\n\tState variables written after the call(s):\n\t- balances[msg.sender] = 0 (src/vulnerable/AdvancedTreasury.sol#50)\n\tAdvancedTreasury.balances (src/vulnerable/AdvancedTreasury.sol#13) can be used in cross function reentrancies:\n\t- AdvancedTreasury.balances (src/vulnerable/AdvancedTreasury.sol#13)\n\t- AdvancedTreasury.deposit() (src/vulnerable/AdvancedTreasury.sol#25-29)\n\t- AdvancedTreasury.withdraw() (src/vulnerable/AdvancedTreasury.sol#43-51)\n",
+        "markdown": "Reentrancy in [AdvancedTreasury.withdraw()](src/vulnerable/AdvancedTreasury.sol#L43-L51):\n\tExternal calls:\n\t- [(success,None) = hook.call{value: amount}()](src/vulnerable/AdvancedTreasury.sol#L47)\n\tState variables written after the call(s):\n\t- [balances[msg.sender] = 0](src/vulnerable/AdvancedTreasury.sol#L50)\n\t[AdvancedTreasury.balances](src/vulnerable/AdvancedTreasury.sol#L13) can be used in cross function reentrancies:\n\t- [AdvancedTreasury.balances](src/vulnerable/AdvancedTreasury.sol#L13)\n\t- [AdvancedTreasury.deposit()](src/vulnerable/AdvancedTreasury.sol#L25-L29)\n\t- [AdvancedTreasury.withdraw()](src/vulnerable/AdvancedTreasury.sol#L43-L51)\n",
+        "first_markdown_element": "src/vulnerable/AdvancedTreasury.sol#L43-L51",
+        "id": "3a4225132518214ba3f6316ec69ec1d0b64dcd8812e663f553c9d761a05ce78c",
+        "check": "reentrancy-eth",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdraw",
+            "source_mapping": {
+              "start": 1279,
+              "length": 347,
+              "filename_relative": "src/vulnerable/EtherVault.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+              "filename_short": "src/vulnerable/EtherVault.sol",
+              "is_dependency": false,
+              "lines": [
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "EtherVault",
+                "source_mapping": {
+                  "start": 357,
+                  "length": 1433,
+                  "filename_relative": "src/vulnerable/EtherVault.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                  "filename_short": "src/vulnerable/EtherVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "withdraw()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = msg.sender.call{value: amount}()",
+            "source_mapping": {
+              "start": 1430,
+              "length": 53,
+              "filename_relative": "src/vulnerable/EtherVault.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+              "filename_short": "src/vulnerable/EtherVault.sol",
+              "is_dependency": false,
+              "lines": [
+                36
+              ],
+              "starting_column": 9,
+              "ending_column": 62
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 1279,
+                  "length": 347,
+                  "filename_relative": "src/vulnerable/EtherVault.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                  "filename_short": "src/vulnerable/EtherVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "EtherVault",
+                    "source_mapping": {
+                      "start": 357,
+                      "length": 1433,
+                      "filename_relative": "src/vulnerable/EtherVault.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                      "filename_short": "src/vulnerable/EtherVault.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "external_calls"
+            }
+          },
+          {
+            "type": "node",
+            "name": "balances[msg.sender] = 0",
+            "source_mapping": {
+              "start": 1551,
+              "length": 24,
+              "filename_relative": "src/vulnerable/EtherVault.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+              "filename_short": "src/vulnerable/EtherVault.sol",
+              "is_dependency": false,
+              "lines": [
+                39
+              ],
+              "starting_column": 9,
+              "ending_column": 33
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 1279,
+                  "length": 347,
+                  "filename_relative": "src/vulnerable/EtherVault.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                  "filename_short": "src/vulnerable/EtherVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "EtherVault",
+                    "source_mapping": {
+                      "start": 357,
+                      "length": 1433,
+                      "filename_relative": "src/vulnerable/EtherVault.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                      "filename_short": "src/vulnerable/EtherVault.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "variables_written",
+              "variable_name": "balances"
+            }
+          }
+        ],
+        "description": "Reentrancy in EtherVault.withdraw() (src/vulnerable/EtherVault.sol#32-41):\n\tExternal calls:\n\t- (success,None) = msg.sender.call{value: amount}() (src/vulnerable/EtherVault.sol#36)\n\tState variables written after the call(s):\n\t- balances[msg.sender] = 0 (src/vulnerable/EtherVault.sol#39)\n\tEtherVault.balances (src/vulnerable/EtherVault.sol#11) can be used in cross function reentrancies:\n\t- EtherVault.balances (src/vulnerable/EtherVault.sol#11)\n\t- EtherVault.deposit() (src/vulnerable/EtherVault.sol#24-28)\n\t- EtherVault.withdraw() (src/vulnerable/EtherVault.sol#32-41)\n",
+        "markdown": "Reentrancy in [EtherVault.withdraw()](src/vulnerable/EtherVault.sol#L32-L41):\n\tExternal calls:\n\t- [(success,None) = msg.sender.call{value: amount}()](src/vulnerable/EtherVault.sol#L36)\n\tState variables written after the call(s):\n\t- [balances[msg.sender] = 0](src/vulnerable/EtherVault.sol#L39)\n\t[EtherVault.balances](src/vulnerable/EtherVault.sol#L11) can be used in cross function reentrancies:\n\t- [EtherVault.balances](src/vulnerable/EtherVault.sol#L11)\n\t- [EtherVault.deposit()](src/vulnerable/EtherVault.sol#L24-L28)\n\t- [EtherVault.withdraw()](src/vulnerable/EtherVault.sol#L32-L41)\n",
+        "first_markdown_element": "src/vulnerable/EtherVault.sol#L32-L41",
+        "id": "e4273570631001731d95d72a046a856522b35cc214af9dc8286af1b67669a92a",
+        "check": "reentrancy-eth",
+        "impact": "High",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "transferOwnership",
+            "source_mapping": {
+              "start": 1327,
+              "length": 274,
+              "filename_relative": "src/vulnerable/LabGovernance.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/LabGovernance.sol",
+              "filename_short": "src/vulnerable/LabGovernance.sol",
+              "is_dependency": false,
+              "lines": [
+                34,
+                35,
+                36,
+                37,
+                38,
+                39
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "LabGovernance",
+                "source_mapping": {
+                  "start": 425,
+                  "length": 1629,
+                  "filename_relative": "src/vulnerable/LabGovernance.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/LabGovernance.sol",
+                  "filename_short": "src/vulnerable/LabGovernance.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "transferOwnership(address)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "require(bool,string)(tx.origin == owner,LabGovernance: not owner)",
+            "source_mapping": {
+              "start": 1391,
+              "length": 55,
+              "filename_relative": "src/vulnerable/LabGovernance.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/LabGovernance.sol",
+              "filename_short": "src/vulnerable/LabGovernance.sol",
+              "is_dependency": false,
+              "lines": [
+                35
+              ],
+              "starting_column": 9,
+              "ending_column": 64
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "transferOwnership",
+                "source_mapping": {
+                  "start": 1327,
+                  "length": 274,
+                  "filename_relative": "src/vulnerable/LabGovernance.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/LabGovernance.sol",
+                  "filename_short": "src/vulnerable/LabGovernance.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "LabGovernance",
+                    "source_mapping": {
+                      "start": 425,
+                      "length": 1629,
+                      "filename_relative": "src/vulnerable/LabGovernance.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/LabGovernance.sol",
+                      "filename_short": "src/vulnerable/LabGovernance.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "transferOwnership(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "LabGovernance.transferOwnership(address) (src/vulnerable/LabGovernance.sol#34-39) uses tx.origin for authorization: require(bool,string)(tx.origin == owner,LabGovernance: not owner) (src/vulnerable/LabGovernance.sol#35)\n",
+        "markdown": "[LabGovernance.transferOwnership(address)](src/vulnerable/LabGovernance.sol#L34-L39) uses tx.origin for authorization: [require(bool,string)(tx.origin == owner,LabGovernance: not owner)](src/vulnerable/LabGovernance.sol#L35)\n",
+        "first_markdown_element": "src/vulnerable/LabGovernance.sol#L34-L39",
+        "id": "8ce2fc32ef214e8faf7dbeb72e16747cf1e9209b7fb44d519c70e43a7ed5d47d",
+        "check": "tx-origin",
+        "impact": "Medium",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "setTreasury",
+            "source_mapping": {
+              "start": 1768,
+              "length": 284,
+              "filename_relative": "src/vulnerable/LabGovernance.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/LabGovernance.sol",
+              "filename_short": "src/vulnerable/LabGovernance.sol",
+              "is_dependency": false,
+              "lines": [
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "LabGovernance",
+                "source_mapping": {
+                  "start": 425,
+                  "length": 1629,
+                  "filename_relative": "src/vulnerable/LabGovernance.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/LabGovernance.sol",
+                  "filename_short": "src/vulnerable/LabGovernance.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "setTreasury(address)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "require(bool,string)(tx.origin == owner,LabGovernance: not owner)",
+            "source_mapping": {
+              "start": 1829,
+              "length": 55,
+              "filename_relative": "src/vulnerable/LabGovernance.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/LabGovernance.sol",
+              "filename_short": "src/vulnerable/LabGovernance.sol",
+              "is_dependency": false,
+              "lines": [
+                45
+              ],
+              "starting_column": 9,
+              "ending_column": 64
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "setTreasury",
+                "source_mapping": {
+                  "start": 1768,
+                  "length": 284,
+                  "filename_relative": "src/vulnerable/LabGovernance.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/LabGovernance.sol",
+                  "filename_short": "src/vulnerable/LabGovernance.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "LabGovernance",
+                    "source_mapping": {
+                      "start": 425,
+                      "length": 1629,
+                      "filename_relative": "src/vulnerable/LabGovernance.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/LabGovernance.sol",
+                      "filename_short": "src/vulnerable/LabGovernance.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "setTreasury(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "LabGovernance.setTreasury(address) (src/vulnerable/LabGovernance.sol#44-49) uses tx.origin for authorization: require(bool,string)(tx.origin == owner,LabGovernance: not owner) (src/vulnerable/LabGovernance.sol#45)\n",
+        "markdown": "[LabGovernance.setTreasury(address)](src/vulnerable/LabGovernance.sol#L44-L49) uses tx.origin for authorization: [require(bool,string)(tx.origin == owner,LabGovernance: not owner)](src/vulnerable/LabGovernance.sol#L45)\n",
+        "first_markdown_element": "src/vulnerable/LabGovernance.sol#L44-L49",
+        "id": "aaf3773a395ec4935226e39f79332f8b1687ba2f1f1e007a0f26295c44dc16fd",
+        "check": "tx-origin",
+        "impact": "Medium",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin"
+      },
+      {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "recipient",
+            "source_mapping": {
+              "start": 1566,
+              "length": 17,
+              "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+              "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+              "is_dependency": false,
+              "lines": [
+                35
+              ],
+              "starting_column": 20,
+              "ending_column": 37
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "claim",
+                "source_mapping": {
+                  "start": 1551,
+                  "length": 488,
+                  "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                  "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureAirdrop",
+                    "source_mapping": {
+                      "start": 595,
+                      "length": 1521,
+                      "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                      "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "claim(address,uint256,bytes)"
+                }
+              }
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = recipient.call{value: amount}()",
+            "source_mapping": {
+              "start": 1876,
+              "length": 52,
+              "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+              "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+              "is_dependency": false,
+              "lines": [
+                41
+              ],
+              "starting_column": 9,
+              "ending_column": 61
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "claim",
+                "source_mapping": {
+                  "start": 1551,
+                  "length": 488,
+                  "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                  "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureAirdrop",
+                    "source_mapping": {
+                      "start": 595,
+                      "length": 1521,
+                      "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                      "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "claim(address,uint256,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "SignatureAirdrop.claim(address,uint256,bytes).recipient (src/vulnerable/SignatureAirdrop.sol#35) lacks a zero-check on :\n\t\t- (success,None) = recipient.call{value: amount}() (src/vulnerable/SignatureAirdrop.sol#41)\n",
+        "markdown": "[SignatureAirdrop.claim(address,uint256,bytes).recipient](src/vulnerable/SignatureAirdrop.sol#L35) lacks a zero-check on :\n\t\t- [(success,None) = recipient.call{value: amount}()](src/vulnerable/SignatureAirdrop.sol#L41)\n",
+        "first_markdown_element": "src/vulnerable/SignatureAirdrop.sol#L35",
+        "id": "f4ab1d60fe15044661a3983ab045aa7a7aee711e3448b114eb753eff3c7244fc",
+        "check": "missing-zero-check",
+        "impact": "Low",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "refundAll",
+            "source_mapping": {
+              "start": 1367,
+              "length": 467,
+              "filename_relative": "src/vulnerable/RefundPool.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+              "filename_short": "src/vulnerable/RefundPool.sol",
+              "is_dependency": false,
+              "lines": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "RefundPool",
+                "source_mapping": {
+                  "start": 360,
+                  "length": 1636,
+                  "filename_relative": "src/vulnerable/RefundPool.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                  "filename_short": "src/vulnerable/RefundPool.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    51
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "refundAll()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = contributor.call{value: amount}()",
+            "source_mapping": {
+              "start": 1656,
+              "length": 54,
+              "filename_relative": "src/vulnerable/RefundPool.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+              "filename_short": "src/vulnerable/RefundPool.sol",
+              "is_dependency": false,
+              "lines": [
+                41
+              ],
+              "starting_column": 13,
+              "ending_column": 67
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "refundAll",
+                "source_mapping": {
+                  "start": 1367,
+                  "length": 467,
+                  "filename_relative": "src/vulnerable/RefundPool.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                  "filename_short": "src/vulnerable/RefundPool.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "RefundPool",
+                    "source_mapping": {
+                      "start": 360,
+                      "length": 1636,
+                      "filename_relative": "src/vulnerable/RefundPool.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                      "filename_short": "src/vulnerable/RefundPool.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "refundAll()"
+                }
+              }
+            }
+          }
+        ],
+        "description": "RefundPool.refundAll() (src/vulnerable/RefundPool.sol#35-45) has external calls inside a loop: (success,None) = contributor.call{value: amount}() (src/vulnerable/RefundPool.sol#41)\n",
+        "markdown": "[RefundPool.refundAll()](src/vulnerable/RefundPool.sol#L35-L45) has external calls inside a loop: [(success,None) = contributor.call{value: amount}()](src/vulnerable/RefundPool.sol#L41)\n",
+        "first_markdown_element": "src/vulnerable/RefundPool.sol#L35-L45",
+        "id": "94f4f94ccb869550b48ab30d07be36a0ea6324758a97044c8ba4c87cbf9ee81a",
+        "check": "calls-loop",
+        "impact": "Low",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "solve",
+            "source_mapping": {
+              "start": 1350,
+              "length": 466,
+              "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+              "filename_short": "src/vulnerable/FrontRunLottery.sol",
+              "is_dependency": false,
+              "lines": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "FrontRunLottery",
+                "source_mapping": {
+                  "start": 421,
+                  "length": 1397,
+                  "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+                  "filename_short": "src/vulnerable/FrontRunLottery.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "solve(uint256)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = msg.sender.call{value: payout}()",
+            "source_mapping": {
+              "start": 1653,
+              "length": 53,
+              "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+              "filename_short": "src/vulnerable/FrontRunLottery.sol",
+              "is_dependency": false,
+              "lines": [
+                42
+              ],
+              "starting_column": 9,
+              "ending_column": 62
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "solve",
+                "source_mapping": {
+                  "start": 1350,
+                  "length": 466,
+                  "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+                  "filename_short": "src/vulnerable/FrontRunLottery.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "FrontRunLottery",
+                    "source_mapping": {
+                      "start": 421,
+                      "length": 1397,
+                      "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+                      "filename_short": "src/vulnerable/FrontRunLottery.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "solve(uint256)"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "external_calls"
+            }
+          },
+          {
+            "type": "node",
+            "name": "Solved(msg.sender,payout)",
+            "source_mapping": {
+              "start": 1778,
+              "length": 31,
+              "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+              "filename_short": "src/vulnerable/FrontRunLottery.sol",
+              "is_dependency": false,
+              "lines": [
+                44
+              ],
+              "starting_column": 9,
+              "ending_column": 40
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "solve",
+                "source_mapping": {
+                  "start": 1350,
+                  "length": 466,
+                  "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+                  "filename_short": "src/vulnerable/FrontRunLottery.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "FrontRunLottery",
+                    "source_mapping": {
+                      "start": 421,
+                      "length": 1397,
+                      "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+                      "filename_short": "src/vulnerable/FrontRunLottery.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "solve(uint256)"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "event"
+            }
+          }
+        ],
+        "description": "Reentrancy in FrontRunLottery.solve(uint256) (src/vulnerable/FrontRunLottery.sol#35-45):\n\tExternal calls:\n\t- (success,None) = msg.sender.call{value: payout}() (src/vulnerable/FrontRunLottery.sol#42)\n\tEvent emitted after the call(s):\n\t- Solved(msg.sender,payout) (src/vulnerable/FrontRunLottery.sol#44)\n",
+        "markdown": "Reentrancy in [FrontRunLottery.solve(uint256)](src/vulnerable/FrontRunLottery.sol#L35-L45):\n\tExternal calls:\n\t- [(success,None) = msg.sender.call{value: payout}()](src/vulnerable/FrontRunLottery.sol#L42)\n\tEvent emitted after the call(s):\n\t- [Solved(msg.sender,payout)](src/vulnerable/FrontRunLottery.sol#L44)\n",
+        "first_markdown_element": "src/vulnerable/FrontRunLottery.sol#L35-L45",
+        "id": "417cd250a50c2c7d2ee0a8b749b69ed66f17ca5db8d57b1717d86b91cdd114f6",
+        "check": "reentrancy-events",
+        "impact": "Low",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "refundAll",
+            "source_mapping": {
+              "start": 1367,
+              "length": 467,
+              "filename_relative": "src/vulnerable/RefundPool.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+              "filename_short": "src/vulnerable/RefundPool.sol",
+              "is_dependency": false,
+              "lines": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "RefundPool",
+                "source_mapping": {
+                  "start": 360,
+                  "length": 1636,
+                  "filename_relative": "src/vulnerable/RefundPool.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                  "filename_short": "src/vulnerable/RefundPool.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    51
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "refundAll()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = contributor.call{value: amount}()",
+            "source_mapping": {
+              "start": 1656,
+              "length": 54,
+              "filename_relative": "src/vulnerable/RefundPool.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+              "filename_short": "src/vulnerable/RefundPool.sol",
+              "is_dependency": false,
+              "lines": [
+                41
+              ],
+              "starting_column": 13,
+              "ending_column": 67
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "refundAll",
+                "source_mapping": {
+                  "start": 1367,
+                  "length": 467,
+                  "filename_relative": "src/vulnerable/RefundPool.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                  "filename_short": "src/vulnerable/RefundPool.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "RefundPool",
+                    "source_mapping": {
+                      "start": 360,
+                      "length": 1636,
+                      "filename_relative": "src/vulnerable/RefundPool.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                      "filename_short": "src/vulnerable/RefundPool.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "refundAll()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "external_calls"
+            }
+          },
+          {
+            "type": "node",
+            "name": "Refunded(contributor,amount)",
+            "source_mapping": {
+              "start": 1783,
+              "length": 34,
+              "filename_relative": "src/vulnerable/RefundPool.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+              "filename_short": "src/vulnerable/RefundPool.sol",
+              "is_dependency": false,
+              "lines": [
+                43
+              ],
+              "starting_column": 13,
+              "ending_column": 47
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "refundAll",
+                "source_mapping": {
+                  "start": 1367,
+                  "length": 467,
+                  "filename_relative": "src/vulnerable/RefundPool.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                  "filename_short": "src/vulnerable/RefundPool.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "RefundPool",
+                    "source_mapping": {
+                      "start": 360,
+                      "length": 1636,
+                      "filename_relative": "src/vulnerable/RefundPool.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                      "filename_short": "src/vulnerable/RefundPool.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "refundAll()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "event"
+            }
+          }
+        ],
+        "description": "Reentrancy in RefundPool.refundAll() (src/vulnerable/RefundPool.sol#35-45):\n\tExternal calls:\n\t- (success,None) = contributor.call{value: amount}() (src/vulnerable/RefundPool.sol#41)\n\tEvent emitted after the call(s):\n\t- Refunded(contributor,amount) (src/vulnerable/RefundPool.sol#43)\n",
+        "markdown": "Reentrancy in [RefundPool.refundAll()](src/vulnerable/RefundPool.sol#L35-L45):\n\tExternal calls:\n\t- [(success,None) = contributor.call{value: amount}()](src/vulnerable/RefundPool.sol#L41)\n\tEvent emitted after the call(s):\n\t- [Refunded(contributor,amount)](src/vulnerable/RefundPool.sol#L43)\n",
+        "first_markdown_element": "src/vulnerable/RefundPool.sol#L35-L45",
+        "id": "9aeb7f5b111c545567f5c26d795a0d7da2fd7e54a76e1143d6be1f438bc6720e",
+        "check": "reentrancy-events",
+        "impact": "Low",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "claim",
+            "source_mapping": {
+              "start": 1551,
+              "length": 488,
+              "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+              "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+              "is_dependency": false,
+              "lines": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "SignatureAirdrop",
+                "source_mapping": {
+                  "start": 595,
+                  "length": 1521,
+                  "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                  "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "claim(address,uint256,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = recipient.call{value: amount}()",
+            "source_mapping": {
+              "start": 1876,
+              "length": 52,
+              "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+              "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+              "is_dependency": false,
+              "lines": [
+                41
+              ],
+              "starting_column": 9,
+              "ending_column": 61
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "claim",
+                "source_mapping": {
+                  "start": 1551,
+                  "length": 488,
+                  "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                  "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureAirdrop",
+                    "source_mapping": {
+                      "start": 595,
+                      "length": 1521,
+                      "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                      "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "claim(address,uint256,bytes)"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "external_calls"
+            }
+          },
+          {
+            "type": "node",
+            "name": "Claimed(recipient,amount)",
+            "source_mapping": {
+              "start": 2001,
+              "length": 31,
+              "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+              "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+              "is_dependency": false,
+              "lines": [
+                43
+              ],
+              "starting_column": 9,
+              "ending_column": 40
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "claim",
+                "source_mapping": {
+                  "start": 1551,
+                  "length": 488,
+                  "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                  "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureAirdrop",
+                    "source_mapping": {
+                      "start": 595,
+                      "length": 1521,
+                      "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                      "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "claim(address,uint256,bytes)"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "event"
+            }
+          }
+        ],
+        "description": "Reentrancy in SignatureAirdrop.claim(address,uint256,bytes) (src/vulnerable/SignatureAirdrop.sol#35-44):\n\tExternal calls:\n\t- (success,None) = recipient.call{value: amount}() (src/vulnerable/SignatureAirdrop.sol#41)\n\tEvent emitted after the call(s):\n\t- Claimed(recipient,amount) (src/vulnerable/SignatureAirdrop.sol#43)\n",
+        "markdown": "Reentrancy in [SignatureAirdrop.claim(address,uint256,bytes)](src/vulnerable/SignatureAirdrop.sol#L35-L44):\n\tExternal calls:\n\t- [(success,None) = recipient.call{value: amount}()](src/vulnerable/SignatureAirdrop.sol#L41)\n\tEvent emitted after the call(s):\n\t- [Claimed(recipient,amount)](src/vulnerable/SignatureAirdrop.sol#L43)\n",
+        "first_markdown_element": "src/vulnerable/SignatureAirdrop.sol#L35-L44",
+        "id": "a12f4acc6b995584e711a97de07eece05aa0a63e388893c6359acaf17e470bbb",
+        "check": "reentrancy-events",
+        "impact": "Low",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdraw",
+            "source_mapping": {
+              "start": 1279,
+              "length": 347,
+              "filename_relative": "src/vulnerable/EtherVault.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+              "filename_short": "src/vulnerable/EtherVault.sol",
+              "is_dependency": false,
+              "lines": [
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "EtherVault",
+                "source_mapping": {
+                  "start": 357,
+                  "length": 1433,
+                  "filename_relative": "src/vulnerable/EtherVault.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                  "filename_short": "src/vulnerable/EtherVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "withdraw()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = msg.sender.call{value: amount}()",
+            "source_mapping": {
+              "start": 1430,
+              "length": 53,
+              "filename_relative": "src/vulnerable/EtherVault.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+              "filename_short": "src/vulnerable/EtherVault.sol",
+              "is_dependency": false,
+              "lines": [
+                36
+              ],
+              "starting_column": 9,
+              "ending_column": 62
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 1279,
+                  "length": 347,
+                  "filename_relative": "src/vulnerable/EtherVault.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                  "filename_short": "src/vulnerable/EtherVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "EtherVault",
+                    "source_mapping": {
+                      "start": 357,
+                      "length": 1433,
+                      "filename_relative": "src/vulnerable/EtherVault.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                      "filename_short": "src/vulnerable/EtherVault.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "external_calls"
+            }
+          },
+          {
+            "type": "node",
+            "name": "Withdrawn(msg.sender,amount)",
+            "source_mapping": {
+              "start": 1585,
+              "length": 34,
+              "filename_relative": "src/vulnerable/EtherVault.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+              "filename_short": "src/vulnerable/EtherVault.sol",
+              "is_dependency": false,
+              "lines": [
+                40
+              ],
+              "starting_column": 9,
+              "ending_column": 43
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 1279,
+                  "length": 347,
+                  "filename_relative": "src/vulnerable/EtherVault.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                  "filename_short": "src/vulnerable/EtherVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "EtherVault",
+                    "source_mapping": {
+                      "start": 357,
+                      "length": 1433,
+                      "filename_relative": "src/vulnerable/EtherVault.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                      "filename_short": "src/vulnerable/EtherVault.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "event"
+            }
+          }
+        ],
+        "description": "Reentrancy in EtherVault.withdraw() (src/vulnerable/EtherVault.sol#32-41):\n\tExternal calls:\n\t- (success,None) = msg.sender.call{value: amount}() (src/vulnerable/EtherVault.sol#36)\n\tEvent emitted after the call(s):\n\t- Withdrawn(msg.sender,amount) (src/vulnerable/EtherVault.sol#40)\n",
+        "markdown": "Reentrancy in [EtherVault.withdraw()](src/vulnerable/EtherVault.sol#L32-L41):\n\tExternal calls:\n\t- [(success,None) = msg.sender.call{value: amount}()](src/vulnerable/EtherVault.sol#L36)\n\tEvent emitted after the call(s):\n\t- [Withdrawn(msg.sender,amount)](src/vulnerable/EtherVault.sol#L40)\n",
+        "first_markdown_element": "src/vulnerable/EtherVault.sol#L32-L41",
+        "id": "d000391cc436fd0c26cf02d37d0db00c2a619c908f5489bf4e6fde7cac5b917b",
+        "check": "reentrancy-events",
+        "impact": "Low",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdraw",
+            "source_mapping": {
+              "start": 1279,
+              "length": 347,
+              "filename_relative": "src/vulnerable/EtherVault.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+              "filename_short": "src/vulnerable/EtherVault.sol",
+              "is_dependency": false,
+              "lines": [
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "EtherVault",
+                "source_mapping": {
+                  "start": 357,
+                  "length": 1433,
+                  "filename_relative": "src/vulnerable/EtherVault.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                  "filename_short": "src/vulnerable/EtherVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "withdraw()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = msg.sender.call{value: amount}()",
+            "source_mapping": {
+              "start": 1430,
+              "length": 53,
+              "filename_relative": "src/vulnerable/EtherVault.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+              "filename_short": "src/vulnerable/EtherVault.sol",
+              "is_dependency": false,
+              "lines": [
+                36
+              ],
+              "starting_column": 9,
+              "ending_column": 62
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 1279,
+                  "length": 347,
+                  "filename_relative": "src/vulnerable/EtherVault.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                  "filename_short": "src/vulnerable/EtherVault.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "EtherVault",
+                    "source_mapping": {
+                      "start": 357,
+                      "length": 1433,
+                      "filename_relative": "src/vulnerable/EtherVault.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/EtherVault.sol",
+                      "filename_short": "src/vulnerable/EtherVault.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in EtherVault.withdraw() (src/vulnerable/EtherVault.sol#32-41):\n\t- (success,None) = msg.sender.call{value: amount}() (src/vulnerable/EtherVault.sol#36)\n",
+        "markdown": "Low level call in [EtherVault.withdraw()](src/vulnerable/EtherVault.sol#L32-L41):\n\t- [(success,None) = msg.sender.call{value: amount}()](src/vulnerable/EtherVault.sol#L36)\n",
+        "first_markdown_element": "src/vulnerable/EtherVault.sol#L32-L41",
+        "id": "1fea00590a3d79d939a84f147c288e9fcb3fd43a3e106280a9c843b8fe7008e8",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdraw",
+            "source_mapping": {
+              "start": 1680,
+              "length": 309,
+              "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+              "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+              "is_dependency": false,
+              "lines": [
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "AdvancedTreasury",
+                "source_mapping": {
+                  "start": 429,
+                  "length": 1720,
+                  "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+                  "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    51,
+                    52,
+                    53,
+                    54,
+                    55,
+                    56,
+                    57
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "withdraw()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = hook.call{value: amount}()",
+            "source_mapping": {
+              "start": 1837,
+              "length": 47,
+              "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+              "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+              "is_dependency": false,
+              "lines": [
+                47
+              ],
+              "starting_column": 9,
+              "ending_column": 56
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdraw",
+                "source_mapping": {
+                  "start": 1680,
+                  "length": 309,
+                  "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+                  "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    51
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "AdvancedTreasury",
+                    "source_mapping": {
+                      "start": 429,
+                      "length": 1720,
+                      "filename_relative": "src/vulnerable/AdvancedTreasury.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/AdvancedTreasury.sol",
+                      "filename_short": "src/vulnerable/AdvancedTreasury.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51,
+                        52,
+                        53,
+                        54,
+                        55,
+                        56,
+                        57
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdraw()"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in AdvancedTreasury.withdraw() (src/vulnerable/AdvancedTreasury.sol#43-51):\n\t- (success,None) = hook.call{value: amount}() (src/vulnerable/AdvancedTreasury.sol#47)\n",
+        "markdown": "Low level call in [AdvancedTreasury.withdraw()](src/vulnerable/AdvancedTreasury.sol#L43-L51):\n\t- [(success,None) = hook.call{value: amount}()](src/vulnerable/AdvancedTreasury.sol#L47)\n",
+        "first_markdown_element": "src/vulnerable/AdvancedTreasury.sol#L43-L51",
+        "id": "6fb147cf34b55b65deb2cb12d20c4c01a192e6573b44a89e8b83e9b921449fc4",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "solve",
+            "source_mapping": {
+              "start": 1350,
+              "length": 466,
+              "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+              "filename_short": "src/vulnerable/FrontRunLottery.sol",
+              "is_dependency": false,
+              "lines": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "FrontRunLottery",
+                "source_mapping": {
+                  "start": 421,
+                  "length": 1397,
+                  "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+                  "filename_short": "src/vulnerable/FrontRunLottery.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "solve(uint256)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = msg.sender.call{value: payout}()",
+            "source_mapping": {
+              "start": 1653,
+              "length": 53,
+              "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+              "filename_short": "src/vulnerable/FrontRunLottery.sol",
+              "is_dependency": false,
+              "lines": [
+                42
+              ],
+              "starting_column": 9,
+              "ending_column": 62
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "solve",
+                "source_mapping": {
+                  "start": 1350,
+                  "length": 466,
+                  "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+                  "filename_short": "src/vulnerable/FrontRunLottery.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "FrontRunLottery",
+                    "source_mapping": {
+                      "start": 421,
+                      "length": 1397,
+                      "filename_relative": "src/vulnerable/FrontRunLottery.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/FrontRunLottery.sol",
+                      "filename_short": "src/vulnerable/FrontRunLottery.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "solve(uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in FrontRunLottery.solve(uint256) (src/vulnerable/FrontRunLottery.sol#35-45):\n\t- (success,None) = msg.sender.call{value: payout}() (src/vulnerable/FrontRunLottery.sol#42)\n",
+        "markdown": "Low level call in [FrontRunLottery.solve(uint256)](src/vulnerable/FrontRunLottery.sol#L35-L45):\n\t- [(success,None) = msg.sender.call{value: payout}()](src/vulnerable/FrontRunLottery.sol#L42)\n",
+        "first_markdown_element": "src/vulnerable/FrontRunLottery.sol#L35-L45",
+        "id": "9f3075a2864b8d933e42a5199eb007d512d7d3138c1eebccdc82c839168db2c5",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "claim",
+            "source_mapping": {
+              "start": 1551,
+              "length": 488,
+              "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+              "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+              "is_dependency": false,
+              "lines": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "SignatureAirdrop",
+                "source_mapping": {
+                  "start": 595,
+                  "length": 1521,
+                  "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                  "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "claim(address,uint256,bytes)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = recipient.call{value: amount}()",
+            "source_mapping": {
+              "start": 1876,
+              "length": 52,
+              "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+              "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+              "is_dependency": false,
+              "lines": [
+                41
+              ],
+              "starting_column": 9,
+              "ending_column": 61
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "claim",
+                "source_mapping": {
+                  "start": 1551,
+                  "length": 488,
+                  "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                  "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "SignatureAirdrop",
+                    "source_mapping": {
+                      "start": 595,
+                      "length": 1521,
+                      "filename_relative": "src/vulnerable/SignatureAirdrop.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/SignatureAirdrop.sol",
+                      "filename_short": "src/vulnerable/SignatureAirdrop.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "claim(address,uint256,bytes)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in SignatureAirdrop.claim(address,uint256,bytes) (src/vulnerable/SignatureAirdrop.sol#35-44):\n\t- (success,None) = recipient.call{value: amount}() (src/vulnerable/SignatureAirdrop.sol#41)\n",
+        "markdown": "Low level call in [SignatureAirdrop.claim(address,uint256,bytes)](src/vulnerable/SignatureAirdrop.sol#L35-L44):\n\t- [(success,None) = recipient.call{value: amount}()](src/vulnerable/SignatureAirdrop.sol#L41)\n",
+        "first_markdown_element": "src/vulnerable/SignatureAirdrop.sol#L35-L44",
+        "id": "baa05a3122e41c1df62d82710fe53ff5ff8dd29425df0cc6ddfa85e437abaa07",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "refundAll",
+            "source_mapping": {
+              "start": 1367,
+              "length": 467,
+              "filename_relative": "src/vulnerable/RefundPool.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+              "filename_short": "src/vulnerable/RefundPool.sol",
+              "is_dependency": false,
+              "lines": [
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "RefundPool",
+                "source_mapping": {
+                  "start": 360,
+                  "length": 1636,
+                  "filename_relative": "src/vulnerable/RefundPool.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                  "filename_short": "src/vulnerable/RefundPool.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    51
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "refundAll()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = contributor.call{value: amount}()",
+            "source_mapping": {
+              "start": 1656,
+              "length": 54,
+              "filename_relative": "src/vulnerable/RefundPool.sol",
+              "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+              "filename_short": "src/vulnerable/RefundPool.sol",
+              "is_dependency": false,
+              "lines": [
+                41
+              ],
+              "starting_column": 13,
+              "ending_column": 67
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "refundAll",
+                "source_mapping": {
+                  "start": 1367,
+                  "length": 467,
+                  "filename_relative": "src/vulnerable/RefundPool.sol",
+                  "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                  "filename_short": "src/vulnerable/RefundPool.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "RefundPool",
+                    "source_mapping": {
+                      "start": 360,
+                      "length": 1636,
+                      "filename_relative": "src/vulnerable/RefundPool.sol",
+                      "filename_absolute": "/home/jihed/ethershield/src/vulnerable/RefundPool.sol",
+                      "filename_short": "src/vulnerable/RefundPool.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        48,
+                        49,
+                        50,
+                        51
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "refundAll()"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in RefundPool.refundAll() (src/vulnerable/RefundPool.sol#35-45):\n\t- (success,None) = contributor.call{value: amount}() (src/vulnerable/RefundPool.sol#41)\n",
+        "markdown": "Low level call in [RefundPool.refundAll()](src/vulnerable/RefundPool.sol#L35-L45):\n\t- [(success,None) = contributor.call{value: amount}()](src/vulnerable/RefundPool.sol#L41)\n",
+        "first_markdown_element": "src/vulnerable/RefundPool.sol#L35-L45",
+        "id": "fd5035f722882caa43b3d5ab3c2b87a10dbba54a3e2c6e5ab5efc142ed67e50c",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls"
+      }
+    ]
+  }
+}

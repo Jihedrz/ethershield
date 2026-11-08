@@ -1,0 +1,94 @@
+'forge clean' running (wd: /home/jihed/ethershield)
+'forge config --json' running
+'forge build --build-info --deny never --skip ./test/** ./script/** --force' running (wd: /home/jihed/ethershield)
+
+Detector: arbitrary-send-eth
+FrontRunLottery.solve(uint256) (src/vulnerable/FrontRunLottery.sol#35-45) sends eth to arbitrary user
+	Dangerous calls:
+	- (success,None) = msg.sender.call{value: payout}() (src/vulnerable/FrontRunLottery.sol#42)
+SignatureAirdrop.claim(address,uint256,bytes) (src/vulnerable/SignatureAirdrop.sol#35-44) sends eth to arbitrary user
+	Dangerous calls:
+	- (success,None) = recipient.call{value: amount}() (src/vulnerable/SignatureAirdrop.sol#41)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Detector: reentrancy-eth
+Reentrancy in RefundPool.refundAll() (src/vulnerable/RefundPool.sol#35-45):
+	External calls:
+	- (success,None) = contributor.call{value: amount}() (src/vulnerable/RefundPool.sol#41)
+	State variables written after the call(s):
+	- contributions[contributor] = 0 (src/vulnerable/RefundPool.sol#40)
+	RefundPool.contributions (src/vulnerable/RefundPool.sol#14) can be used in cross function reentrancies:
+	- RefundPool.contribute() (src/vulnerable/RefundPool.sol#23-30)
+	- RefundPool.contributions (src/vulnerable/RefundPool.sol#14)
+	- RefundPool.refundAll() (src/vulnerable/RefundPool.sol#35-45)
+Reentrancy in AdvancedTreasury.withdraw() (src/vulnerable/AdvancedTreasury.sol#43-51):
+	External calls:
+	- (success,None) = hook.call{value: amount}() (src/vulnerable/AdvancedTreasury.sol#47)
+	State variables written after the call(s):
+	- balances[msg.sender] = 0 (src/vulnerable/AdvancedTreasury.sol#50)
+	AdvancedTreasury.balances (src/vulnerable/AdvancedTreasury.sol#13) can be used in cross function reentrancies:
+	- AdvancedTreasury.balances (src/vulnerable/AdvancedTreasury.sol#13)
+	- AdvancedTreasury.deposit() (src/vulnerable/AdvancedTreasury.sol#25-29)
+	- AdvancedTreasury.withdraw() (src/vulnerable/AdvancedTreasury.sol#43-51)
+Reentrancy in EtherVault.withdraw() (src/vulnerable/EtherVault.sol#32-41):
+	External calls:
+	- (success,None) = msg.sender.call{value: amount}() (src/vulnerable/EtherVault.sol#36)
+	State variables written after the call(s):
+	- balances[msg.sender] = 0 (src/vulnerable/EtherVault.sol#39)
+	EtherVault.balances (src/vulnerable/EtherVault.sol#11) can be used in cross function reentrancies:
+	- EtherVault.balances (src/vulnerable/EtherVault.sol#11)
+	- EtherVault.deposit() (src/vulnerable/EtherVault.sol#24-28)
+	- EtherVault.withdraw() (src/vulnerable/EtherVault.sol#32-41)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+
+Detector: tx-origin
+LabGovernance.transferOwnership(address) (src/vulnerable/LabGovernance.sol#34-39) uses tx.origin for authorization: require(bool,string)(tx.origin == owner,LabGovernance: not owner) (src/vulnerable/LabGovernance.sol#35)
+LabGovernance.setTreasury(address) (src/vulnerable/LabGovernance.sol#44-49) uses tx.origin for authorization: require(bool,string)(tx.origin == owner,LabGovernance: not owner) (src/vulnerable/LabGovernance.sol#45)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+
+Detector: missing-zero-check
+SignatureAirdrop.claim(address,uint256,bytes).recipient (src/vulnerable/SignatureAirdrop.sol#35) lacks a zero-check on :
+		- (success,None) = recipient.call{value: amount}() (src/vulnerable/SignatureAirdrop.sol#41)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Detector: calls-loop
+RefundPool.refundAll() (src/vulnerable/RefundPool.sol#35-45) has external calls inside a loop: (success,None) = contributor.call{value: amount}() (src/vulnerable/RefundPool.sol#41)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+Detector: reentrancy-events
+Reentrancy in SignatureAirdrop.claim(address,uint256,bytes) (src/vulnerable/SignatureAirdrop.sol#35-44):
+	External calls:
+	- (success,None) = recipient.call{value: amount}() (src/vulnerable/SignatureAirdrop.sol#41)
+	Event emitted after the call(s):
+	- Claimed(recipient,amount) (src/vulnerable/SignatureAirdrop.sol#43)
+Reentrancy in RefundPool.refundAll() (src/vulnerable/RefundPool.sol#35-45):
+	External calls:
+	- (success,None) = contributor.call{value: amount}() (src/vulnerable/RefundPool.sol#41)
+	Event emitted after the call(s):
+	- Refunded(contributor,amount) (src/vulnerable/RefundPool.sol#43)
+Reentrancy in FrontRunLottery.solve(uint256) (src/vulnerable/FrontRunLottery.sol#35-45):
+	External calls:
+	- (success,None) = msg.sender.call{value: payout}() (src/vulnerable/FrontRunLottery.sol#42)
+	Event emitted after the call(s):
+	- Solved(msg.sender,payout) (src/vulnerable/FrontRunLottery.sol#44)
+Reentrancy in EtherVault.withdraw() (src/vulnerable/EtherVault.sol#32-41):
+	External calls:
+	- (success,None) = msg.sender.call{value: amount}() (src/vulnerable/EtherVault.sol#36)
+	Event emitted after the call(s):
+	- Withdrawn(msg.sender,amount) (src/vulnerable/EtherVault.sol#40)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Detector: low-level-calls
+Low level call in AdvancedTreasury.withdraw() (src/vulnerable/AdvancedTreasury.sol#43-51):
+	- (success,None) = hook.call{value: amount}() (src/vulnerable/AdvancedTreasury.sol#47)
+Low level call in EtherVault.withdraw() (src/vulnerable/EtherVault.sol#32-41):
+	- (success,None) = msg.sender.call{value: amount}() (src/vulnerable/EtherVault.sol#36)
+Low level call in FrontRunLottery.solve(uint256) (src/vulnerable/FrontRunLottery.sol#35-45):
+	- (success,None) = msg.sender.call{value: payout}() (src/vulnerable/FrontRunLottery.sol#42)
+Low level call in RefundPool.refundAll() (src/vulnerable/RefundPool.sol#35-45):
+	- (success,None) = contributor.call{value: amount}() (src/vulnerable/RefundPool.sol#41)
+Low level call in SignatureAirdrop.claim(address,uint256,bytes) (src/vulnerable/SignatureAirdrop.sol#35-44):
+	- (success,None) = recipient.call{value: amount}() (src/vulnerable/SignatureAirdrop.sol#41)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+. analyzed (51 contracts with 102 detectors), 18 result(s) found
+INFO:Slither:audit/slither-vulnerable.json exists already, the overwrite is prevented

@@ -1,0 +1,60 @@
+'forge clean' running (wd: /home/jihed/ethershield)
+'forge config --json' running
+'forge build --build-info --deny never --skip ./test/** ./script/** --force' running (wd: /home/jihed/ethershield)
+
+Detector: arbitrary-send-eth
+SignatureAirdropFixed.claim(address,uint256,uint256,bytes) (src/fixed/SignatureAirdropFixed.sol#40-56) sends eth to arbitrary user
+	Dangerous calls:
+	- (success,None) = recipient.call{value: amount}() (src/fixed/SignatureAirdropFixed.sol#53)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Detector: missing-zero-check
+SignatureAirdropFixed.claim(address,uint256,uint256,bytes).recipient (src/fixed/SignatureAirdropFixed.sol#40) lacks a zero-check on :
+		- (success,None) = recipient.call{value: amount}() (src/fixed/SignatureAirdropFixed.sol#53)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Detector: reentrancy-events
+Reentrancy in SignatureAirdropFixed.claim(address,uint256,uint256,bytes) (src/fixed/SignatureAirdropFixed.sol#40-56):
+	External calls:
+	- (success,None) = recipient.call{value: amount}() (src/fixed/SignatureAirdropFixed.sol#53)
+	Event emitted after the call(s):
+	- Claimed(recipient,amount,nonce) (src/fixed/SignatureAirdropFixed.sol#55)
+Reentrancy in RefundPoolFixed.refund() (src/fixed/RefundPoolFixed.sol#27-35):
+	External calls:
+	- (success,None) = msg.sender.call{value: amount}() (src/fixed/RefundPoolFixed.sol#32)
+	Event emitted after the call(s):
+	- Refunded(msg.sender,amount) (src/fixed/RefundPoolFixed.sol#34)
+Reentrancy in CommitRevealLottery.reveal(uint256,bytes32) (src/fixed/CommitRevealLottery.sol#58-76):
+	External calls:
+	- (success,None) = msg.sender.call{value: payout}() (src/fixed/CommitRevealLottery.sol#73)
+	Event emitted after the call(s):
+	- Solved(msg.sender,payout) (src/fixed/CommitRevealLottery.sol#75)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Detector: timestamp
+CommitRevealLottery.commit(bytes32) (src/fixed/CommitRevealLottery.sol#48-53) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp < commitDeadline,CommitRevealLottery: commit phase over) (src/fixed/CommitRevealLottery.sol#49)
+CommitRevealLottery.reveal(uint256,bytes32) (src/fixed/CommitRevealLottery.sol#58-76) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp >= commitDeadline,CommitRevealLottery: commit phase ongoing) (src/fixed/CommitRevealLottery.sol#59)
+	- require(bool,string)(block.timestamp <= revealDeadline,CommitRevealLottery: reveal phase over) (src/fixed/CommitRevealLottery.sol#60)
+SignatureAirdropFixed.claim(address,uint256,uint256,bytes) (src/fixed/SignatureAirdropFixed.sol#40-56) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp <= deadline,SignatureAirdropFixed: expired) (src/fixed/SignatureAirdropFixed.sol#43)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Detector: low-level-calls
+Low level call in AdvancedTreasuryFixed.withdraw() (src/fixed/AdvancedTreasuryFixed.sol#45-53):
+	- (success,None) = hook.call{value: amount}() (src/fixed/AdvancedTreasuryFixed.sol#51)
+Low level call in CommitRevealLottery.reveal(uint256,bytes32) (src/fixed/CommitRevealLottery.sol#58-76):
+	- (success,None) = msg.sender.call{value: payout}() (src/fixed/CommitRevealLottery.sol#73)
+Low level call in EtherVaultFixed.withdraw() (src/fixed/EtherVaultFixed.sol#33-43):
+	- (success,None) = msg.sender.call{value: amount}() (src/fixed/EtherVaultFixed.sol#40)
+Low level call in RefundPoolFixed.refund() (src/fixed/RefundPoolFixed.sol#27-35):
+	- (success,None) = msg.sender.call{value: amount}() (src/fixed/RefundPoolFixed.sol#32)
+Low level call in SignatureAirdropFixed.claim(address,uint256,uint256,bytes) (src/fixed/SignatureAirdropFixed.sol#40-56):
+	- (success,None) = recipient.call{value: amount}() (src/fixed/SignatureAirdropFixed.sol#53)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+. analyzed (51 contracts with 102 detectors), 13 result(s) found
+INFO:Slither:audit/slither-fixed.json exists already, the overwrite is prevented
