@@ -12,7 +12,7 @@ EtherShield est un laboratoire pédagogique qui reproduit six familles de
 vulnérabilités Solidity, puis les corrige. Chaque faille est démontrée par un
 test automatisé et par un script exécutable sur Anvil.
 
-Le audit confirme :
+L'audit confirme :
 
 - 6 failles intentionnelles dans les contrats vulnérables ;
 - 1 scénario avancé qui combine deux failles ;
