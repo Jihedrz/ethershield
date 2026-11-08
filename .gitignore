@@ -1,0 +1,10 @@
+.env
+.env.*
+out/
+cache/
+broadcast/
+node_modules/
+*.key
+deployments/*.json
+__pycache__/
+*.pyc
