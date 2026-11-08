@@ -26,7 +26,7 @@ Le projet compile avec Solidity `0.8.24`. `make install` installe aussi
 ## 2. Installation depuis un clone propre
 
 ```bash
-git clone <url-du-depot> ethershield
+git clone https://github.com/Jihedrz/ethershield.git ethershield
 cd ethershield
 make install
 make build

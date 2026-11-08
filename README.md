@@ -4,6 +4,8 @@ EtherShield est un laboratoire pédagogique de sécurité des smart contracts
 Ethereum. Il permet de développer, auditer, exploiter et corriger des contrats
 Solidity dans un environnement entièrement local.
 
+Dépôt : https://github.com/Jihedrz/ethershield
+
 > **Périmètre de sécurité** : toutes les manipulations se font sur un réseau
 > Anvil local (`127.0.0.1:8545`) avec les comptes de test par défaut d'Anvil.
 > Aucun RPC public, testnet, mainnet, fork ou clé réelle n'est utilisé. Les
