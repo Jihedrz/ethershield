@@ -17,10 +17,6 @@ import { CommitRevealLottery } from "../src/fixed/CommitRevealLottery.sol";
 import { RefundPoolFixed } from "../src/fixed/RefundPoolFixed.sol";
 import { AdvancedTreasuryFixed } from "../src/fixed/AdvancedTreasuryFixed.sol";
 
-/// @title EtherShieldScript
-/// @notice Shared deployment helpers and local Anvil test accounts.
-/// @dev All keys below are the public default Anvil accounts. They are used only
-///      on the local 127.0.0.1 network and must never be used on a real network.
 abstract contract EtherShieldScript is Script {
     uint256 internal constant DEPLOYER_PK =
         0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80;
@@ -36,20 +32,17 @@ abstract contract EtherShieldScript is Script {
 
     uint256 internal constant PUZZLE_ANSWER = 42;
 
-    /// @notice Persist the address of a deployed contract for later scripts.
     function _writeDeployment(string memory name, address deployed) internal {
         string memory path = string.concat("deployments/", name, ".json");
         string memory json = vm.serializeAddress(name, "address", deployed);
         vm.writeJson(json, path);
     }
 
-    /// @notice Load a previously persisted contract address.
     function _readDeployment(string memory name) internal view returns (address) {
         string memory path = string.concat("deployments/", name, ".json");
         return vm.parseJsonAddress(vm.readFile(path), ".address");
     }
 
-    /// @notice Hash of the public lottery answer.
     function _puzzleHash() internal pure returns (bytes32) {
         return keccak256(abi.encodePacked(PUZZLE_ANSWER));
     }

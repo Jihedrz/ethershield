@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { console2 } from "forge-std/console2.sol";
 import { EtherShieldScript } from "./EtherShieldScript.sol";
 
-/// @title DeployVulnerable
-/// @notice Deploy every vulnerable lab contract on the local Anvil network.
 contract DeployVulnerable is EtherShieldScript {
     function run() external {
         vm.startBroadcast(DEPLOYER_PK);

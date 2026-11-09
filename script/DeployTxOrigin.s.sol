@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { console2 } from "forge-std/console2.sol";
 import { EtherShieldScript } from "./EtherShieldScript.sol";
 
-/// @title DeployTxOrigin
-/// @notice Deploy the vulnerable governance and its corrected version.
 contract DeployTxOrigin is EtherShieldScript {
     function run() external {
         vm.startBroadcast(DEPLOYER_PK);

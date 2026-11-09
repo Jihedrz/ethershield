@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { console2 } from "forge-std/console2.sol";
 import { EtherShieldScript } from "./EtherShieldScript.sol";
 
-/// @title DeployFixed
-/// @notice Deploy every corrected lab contract on the local Anvil network.
 contract DeployFixed is EtherShieldScript {
     function run() external {
         vm.startBroadcast(DEPLOYER_PK);

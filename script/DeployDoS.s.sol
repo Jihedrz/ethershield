@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { console2 } from "forge-std/console2.sol";
 import { EtherShieldScript } from "./EtherShieldScript.sol";
 
-/// @title DeployDoS
-/// @notice Deploy the vulnerable refund pool and its corrected version.
 contract DeployDoS is EtherShieldScript {
     function run() external {
         vm.startBroadcast(DEPLOYER_PK);
