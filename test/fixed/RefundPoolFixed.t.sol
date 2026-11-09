@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { Test } from "forge-std/Test.sol";
 import { RefundPoolFixed } from "../../src/fixed/RefundPoolFixed.sol";
 
-/// @title RefundPoolFixed handler
-/// @notice Drives contributions and refunds for invariant testing.
 contract RefundPoolFixedHandler is Test {
     receive() external payable { }
 
@@ -20,7 +18,6 @@ contract RefundPoolFixedHandler is Test {
         actors.push(address(0xB3));
     }
 
-    /// @notice Contribute a bounded amount for a pseudo-random actor.
     function contribute(uint256 actorSeed, uint256 amount) external {
         address actor = actors[bound(actorSeed, 0, actors.length - 1)];
         amount = bound(amount, 1, 10 ether);
@@ -30,7 +27,6 @@ contract RefundPoolFixedHandler is Test {
         ghostSum += amount;
     }
 
-    /// @notice Refund the full contribution of a pseudo-random actor.
     function refund(uint256 actorSeed) external {
         address actor = actors[bound(actorSeed, 0, actors.length - 1)];
         uint256 amount = pool.contributions(actor);
@@ -43,8 +39,6 @@ contract RefundPoolFixedHandler is Test {
     }
 }
 
-/// @title RefundPoolFixed non-regression, fuzz and invariant tests
-/// @notice Verifies pull payments and the accounting invariant.
 contract RefundPoolFixedTest is Test {
     receive() external payable { }
 
@@ -83,8 +77,6 @@ contract RefundPoolFixedTest is Test {
     }
 }
 
-/// @title RefundPoolFixed invariant tests
-/// @notice The pool balance must always cover all recorded contributions.
 contract RefundPoolFixedInvariantTest is Test {
     RefundPoolFixed internal pool;
     RefundPoolFixedHandler internal handler;
@@ -95,7 +87,6 @@ contract RefundPoolFixedInvariantTest is Test {
         targetContract(address(handler));
     }
 
-    /// @notice Invariant: balance covers the ghost sum of contributions.
     function invariant_BalanceCoversContributions() public view {
         assertGe(address(pool).balance, handler.ghostSum());
     }

@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { Test } from "forge-std/Test.sol";
 import { AdvancedTreasuryFixed } from "../../src/fixed/AdvancedTreasuryFixed.sol";
 
-/// @title AdvancedTreasuryFixed non-regression and fuzz tests
-/// @notice Verifies owner-only hook configuration and normal withdrawals.
 contract AdvancedTreasuryFixedTest is Test {
     AdvancedTreasuryFixed internal treasury;
 

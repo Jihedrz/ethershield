@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { Test } from "forge-std/Test.sol";
 import { PaymentExample } from "../../src/examples/PaymentExample.sol";
 
-/// @title M1 payment tests
-/// @notice Demonstrates `payable`, `msg.sender`, explicit calls and plain ETH transfers.
 contract PaymentExampleTest is Test {
     PaymentExample internal example;
 

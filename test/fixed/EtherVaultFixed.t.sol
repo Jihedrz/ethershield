@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { Test } from "forge-std/Test.sol";
 import { EtherVaultFixed } from "../../src/fixed/EtherVaultFixed.sol";
 
-/// @title EtherVaultFixed handler
-/// @notice Drives deposits and withdrawals for invariant testing.
 contract EtherVaultFixedHandler is Test {
     receive() external payable { }
 
@@ -21,7 +19,6 @@ contract EtherVaultFixedHandler is Test {
         actors.push(address(0xA3));
     }
 
-    /// @notice Deposit a bounded amount for a pseudo-random actor.
     function deposit(uint256 actorSeed, uint256 amount) external {
         address actor = actors[bound(actorSeed, 0, actors.length - 1)];
         amount = bound(amount, 1, 10 ether);
@@ -32,7 +29,6 @@ contract EtherVaultFixedHandler is Test {
         ghostSum += amount;
     }
 
-    /// @notice Withdraw the full balance of a pseudo-random actor.
     function withdraw(uint256 actorSeed) external {
         address actor = actors[bound(actorSeed, 0, actors.length - 1)];
         uint256 amount = vault.balances(actor);
@@ -46,8 +42,6 @@ contract EtherVaultFixedHandler is Test {
     }
 }
 
-/// @title EtherVaultFixed non-regression, fuzz and invariant tests
-/// @notice Checks normal behavior, fuzzed deposits/withdrawals and the accounting invariant.
 contract EtherVaultFixedTest is Test {
     receive() external payable { }
 
@@ -89,8 +83,6 @@ contract EtherVaultFixedTest is Test {
     }
 }
 
-/// @title EtherVaultFixed invariant tests
-/// @notice The vault must always hold at least the sum of recorded balances.
 contract EtherVaultFixedInvariantTest is Test {
     EtherVaultFixed internal vault;
     EtherVaultFixedHandler internal handler;
@@ -101,12 +93,10 @@ contract EtherVaultFixedInvariantTest is Test {
         targetContract(address(handler));
     }
 
-    /// @notice Invariant: physical balance covers all recorded user balances.
     function invariant_VaultBalanceCoversRecordedBalances() public view {
         assertGe(address(vault).balance, handler.ghostSum());
     }
 
-    /// @notice Invariant: totalDeposits stays equal to the ghost sum of balances.
     function invariant_TotalDepositsMatchesGhostSum() public view {
         assertEq(vault.totalDeposits(), handler.ghostSum());
     }

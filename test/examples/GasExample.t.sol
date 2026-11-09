@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { Test } from "forge-std/Test.sol";
 import { GasExample } from "../../src/examples/GasExample.sol";
 
-/// @title M1 gas tests
-/// @notice Measures the cost of storage writes against pure memory work.
 contract GasExampleTest is Test {
     GasExample internal example;
 

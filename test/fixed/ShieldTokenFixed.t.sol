@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { Test } from "forge-std/Test.sol";
 import { ShieldTokenFixed } from "../../src/fixed/ShieldTokenFixed.sol";
 
-/// @title ShieldTokenFixed non-regression and fuzz tests
-/// @notice Verifies role-gated minting and normal token behavior.
 contract ShieldTokenFixedTest is Test {
     ShieldTokenFixed internal token;
 

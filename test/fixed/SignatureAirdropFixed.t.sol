@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { Test } from "forge-std/Test.sol";
 import { SignatureAirdropFixed } from "../../src/fixed/SignatureAirdropFixed.sol";
 
-/// @title SignatureAirdropFixed non-regression and fuzz tests
-/// @notice Verifies valid claims, nonce progression and expiration.
 contract SignatureAirdropFixedTest is Test {
     uint256 internal constant SIGNER_KEY = 0xA11CE;
     address internal constant RECIPIENT = address(0xB0B);

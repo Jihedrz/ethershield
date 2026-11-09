@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { Test } from "forge-std/Test.sol";
 import { EventExample } from "../../src/examples/EventExample.sol";
 
-/// @title M1 event tests
-/// @notice Checks that an indexed event is emitted with the expected topic and data.
 contract EventExampleTest is Test {
     event Deposit(address indexed from, uint256 amount);
 

@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { Test } from "forge-std/Test.sol";
 import { StorageExample } from "../../src/examples/StorageExample.sol";
 
-/// @title M1 storage tests
-/// @notice Reads raw storage slots with `vm.load` and checks variable packing.
 contract StorageExampleTest is Test {
     StorageExample internal example;
 

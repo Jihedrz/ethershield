@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { Test } from "forge-std/Test.sol";
 import { CommitRevealLottery } from "../../src/fixed/CommitRevealLottery.sol";
 
-/// @title CommitRevealLottery non-regression and fuzz tests
-/// @notice Verifies the commit/reveal lifecycle and phase boundaries.
 contract CommitRevealLotteryTest is Test {
     uint256 internal constant ANSWER = 42;
     uint256 internal constant PRIZE = 10 ether;

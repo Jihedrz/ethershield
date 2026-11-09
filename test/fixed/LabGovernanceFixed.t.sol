@@ -4,8 +4,6 @@ pragma solidity ^0.8.24;
 import { Test } from "forge-std/Test.sol";
 import { LabGovernanceFixed } from "../../src/fixed/LabGovernanceFixed.sol";
 
-/// @title LabGovernanceFixed non-regression and fuzz tests
-/// @notice Verifies that only the owner can transfer ownership or change the treasury.
 contract LabGovernanceFixedTest is Test {
     LabGovernanceFixed internal governance;
 
